@@ -1,4 +1,4 @@
-name: coinbase-spot-price
+name: Coinbase Spot Price
 description: Chainlink external adapter to retrieve Coinbase spot price
 node_identifier: coinbase-spot-price
 platforms:
