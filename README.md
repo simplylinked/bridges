@@ -11,7 +11,7 @@ Chainlink external adapter to retrieve Coinbase spot price.
 
 ## Running in Cloudflare Workers
 
-- Copy the content of 'index.js' to your Workers script
+- Copy the content of '''index.js''' to your Workers script
 - Click "Save and Deploy"
 - Workers script will be deployed to URL like : WorkersName.YourAccountName.workers.dev 
 - You are good to go!
