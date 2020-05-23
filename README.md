@@ -16,6 +16,9 @@ adapter requirements.
 features.
 - Supports running in serverless environments such as AWS Lambda & GCP functions with minimal effort.
 
+## Prerequisites
+- Coinbase API Key with view permission
+
 ## Running in Cloudflare Workers
 
 - Copy the content of index.js to your Workers
@@ -25,30 +28,9 @@ features.
 ## Example Implementations
 
 ### Basic
-Bridges works by providing a simple interface to confide to. The interface contains two functions, `Run` and `Opts`. 
-The `Run` function is called on each HTTP request, `Opts` is called on start-up. Below is a very basic implementation 
-that returns the `value` as passed in by Chainlink, set back as `newValue` in the response:
+Bridges works by providing a simple interface to confide to. 
 
-```go
-package main
-
-import (
-	"github.com/linkpoolio/bridges"
-)
-
-type MyAdapter struct{}
-
-func (ma *MyAdapter) Run(h *bridge.Helper) (interface{}, error) {
-	return map[string]string{"newValue": h.GetParam("value")}, nil
-}
-
-func (ma *MyAdapter) Opts() *bridge.Opts {
-	return &bridge.Opts{
-		Name:   "MyAdapter",
-		Lambda: true,
-	}
-}
-
+```
 func main() {
 	bridge.NewServer(&MyAdaptor{}).Start(8080)
 }
