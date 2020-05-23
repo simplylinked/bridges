@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://s3.linkpool.io/images/bridgestype.png">
+  <img src="https://simplylinked.io/images/simplylinked-logo-128.png">
 </p>
 
 [![Build Status](https://travis-ci.org/linkpoolio/bridges.svg?branch=master)](https://travis-ci.org/linkpoolio/bridges)
