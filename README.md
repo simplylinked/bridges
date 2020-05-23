@@ -23,19 +23,36 @@ features.
 
 - Copy the content of index.js to your Workers
 - Click "Save and Deploy"
+- Script will be deployed to URL like : WorkersName.YourAccountName.workers.dev 
 - You are good to go!
 
-## Example Implementations
-
-### Basic
-Bridges works by providing a simple interface to confide to. 
+## Usage Example (curl)
 
 ```
-func main() {
-	bridge.NewServer(&MyAdaptor{}).Start(8080)
+curl -X POST https://coinbase-spot-price.simplylinked.workers.dev -H 'Content-Type: application/json' \
+-d @- << EOF
+{
+  "id": "1234",
+  "data": {
+    "pair": "ETH-USD",
+    "headers": {
+      "API_SECRET": "Coinbase_API_Key"
+    }
+  }
+}
+EOF
+```
+## REST Response Example
+```
+{
+   "jobRunID":"1234",
+   "data":{
+      "base":"ETH",
+      "currency":"USD",
+      "amount":"206.535"
+   }
 }
 ```
-
 
 ### Contributing
 
