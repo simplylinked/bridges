@@ -16,7 +16,7 @@ Chainlink external adapter to retrieve Coinbase spot price.
 - Script will be deployed to URL like : WorkersName.YourAccountName.workers.dev 
 - You are good to go!
 
-## Usage Example (curl)
+## Request Example (curl)
 
 ```
 curl -X POST https://WorkersName.YourAccountName.workers.dev -H 'Content-Type: application/json' \
@@ -32,7 +32,7 @@ curl -X POST https://WorkersName.YourAccountName.workers.dev -H 'Content-Type: a
 }
 EOF
 ```
-## REST Response Example
+## Response Example (curl)
 ```
 {
    "jobRunID":"1234",
@@ -44,7 +44,7 @@ EOF
 }
 ```
 
-## Usage Example (JobSpec)
+## JobSpec Example
 ```
 {
   "initiators": [
@@ -103,12 +103,14 @@ EOF
 
 ## Contract Usage
 ```
-    Chainlink.Request memory req = buildChainlinkRequest(stringToBytes32(_jobId), this, this.fulfillEthereumPrice.selector);
-    req.add("pair", "ETH-USD");
-    sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
+// ...
+Chainlink.Request memory req = buildChainlinkRequest(stringToBytes32(_jobId), this, this.fulfillEthereumPrice.selector);
+req.add("pair", "ETH-USD");
+sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
+// ...
 ```
 
-## Example Result (JobRun):
+## JobRun Result Example
 ```
 {
   "id": "afb0155493024ab2838b65524b9c2c3b",
