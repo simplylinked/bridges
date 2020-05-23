@@ -25,36 +25,7 @@ features.
     - [Unauthenticated HTTP Calls](#unauthenticated-http-calls)
     - [Authenticated HTTP Calls](#authenticated-http-calls)
 
-## Code Examples
-
-- [CryptoCompare](examples/cryptocompare): Simplest example.
-- [API Aggregator](examples/apiaggregator): Aggregates multiple endpoints using mean/median/mode. 
-- [Wolfram Alpha](examples/wolframalpha): Short answers API, non-JSON, uses string splitting.
-- [Gas Station](examples/gasstation): Single answer response, no authentication.
-- [Asset Price](https://github.com/linkpoolio/asset-price-cl-ea): A more complex example that aggregates crypto asset 
-prices from multiple exchanges by weighted volume. 
-
-## Running in Docker
-After implementing your bridge, if you'd like to run it in Docker, you can reference the Dockerfiles in 
-[examples](examples/cryptocompare/Dockerfile) to then use as a template for your own Dockerfile.
-
-## Running in AWS Lambda
-After you've completed implementing your bridge, you can then test it in AWS Lambda. To do so:
-
-1. Build the executable:
-    ```bash
-    GO111MODULE=on GOOS=linux GOARCH=amd64 go build -o bridge
-    ```
-2. Add the file to a ZIP archive:
-    ```bash
-    zip bridge.zip ./bridge
-    ```
-3. Upload the the zip file into AWS and then use `bridge` as the
-handler.
-4. Set the `LAMBDA` environment variable to `true` in AWS for
-the adaptor to be compatible with Lambda.
-
-## Running in GCP Functions
+## Running in Cloudflare Workers
 Due to the difference in running Go within GCP Functions, it requires specific considerations for it be supported 
 within your bridge:
 - Bridge implementation cannot be within the `main` package
