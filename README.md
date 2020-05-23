@@ -16,34 +16,11 @@ adapter requirements.
 features.
 - Supports running in serverless environments such as AWS Lambda & GCP functions with minimal effort.
 
-## Contents
-1. [Code Examples](#code-examples)
-2. [Running in AWS Lambda](#running-in-aws-lambda)
-3. [Running in GCP Functions](#running-in-gcp-functions)
-4. [Example Implementations](#example-implementations)
-    - [Basic](#basic)
-    - [Unauthenticated HTTP Calls](#unauthenticated-http-calls)
-    - [Authenticated HTTP Calls](#authenticated-http-calls)
-
 ## Running in Cloudflare Workers
-Due to the difference in running Go within GCP Functions, it requires specific considerations for it be supported 
-within your bridge:
-- Bridge implementation cannot be within the `main` package
-- An extra `Handler` function within your implementation:
-    ```go
-    func Handler(w http.ResponseWriter, r *http.Request) {
-        bridges.NewServer(&Example{}).Handler(w, r)
-    }
-    ```
-- A `go.mod` and `go.sum` within the sub-package that contains the `Handler` function
 
-For an example implementation for GCP Functions, view the 
-[asset price adapter](https://github.com/linkpoolio/asset-price-cl-ea).
-
-You can then use the gcloud CLI tool to deploy it, for example:
-```bash
-gcloud functions deploy bridge --runtime go111 --entry-point Handler --trigger-http
-```
+- Copy the content of index.js to your Workers
+- Click "Save and Deploy"
+- You are good to go!
 
 ## Example Implementations
 
